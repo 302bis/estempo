@@ -96,7 +96,18 @@ const FruitController = (() => {
 }) ();
 
 document.addEventListener('DOMContentLoaded', () => {
-    document.querySelector('#search').addEventListener('keyup', function() {
-        FruitController.searchFruit(this.value);
+    document.querySelector('#search').addEventListener('keyup', function(e) {
+        let term = this.value.toLowerCase().trim();
+
+        FruitController.searchFruit(term);
+    
+        const event = e || window.event;
+        const charCode = event.which || event.keyCode;
+
+        if ( charCode == '13' ) {
+            FruitController.selectFruit(term)
+        }
+
+        return false;
     });
 });
