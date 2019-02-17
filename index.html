@@ -4,41 +4,58 @@
     <meta name="viewport" />
     <meta charset="utf-8" />
     <title></title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" 
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+            crossorigin="anonymous">
+
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet"> 
+
     <style type="text/css">
         body {
-            color: #fff;
             background: #000;
-        }
-
-        .main {
-            margin: auto;
-            max-width: 600px;
+            font-family: 'Open Sans', sans-serif;
         }
 
         #search {
             border-radius: 5px;
-            border: 1px solid #000;
+            border: 0px solid #000;
             padding: 10px;
-            width: 400px;
         }
+        html, body {
+            height: 100%;
+        }
+        .jumbotron{
+            background-color: transparent;
+            color: #fafafa;
+        }
+        .padding{
+            padding-top: 60px; 
+        }
+   
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="main text-center">
-                    <h1>¿Es temporada de?</h1>
-                    <input type="text" autocomplete="off" name="" id="search" />
+        <div class="container h-100 d-flex">
+                <div class="jumbotron my-auto">
+                  <h1 style="font-weight: 300;">¿Es temporada de <input type="text" autocomplete="off" name="" placeholder="Por ejemplo, mango" id="search" /> ?</h1>
+                  <!--<p class="lead">Las frutas son un regalo de la naturaleza, saber cuando es temporada es muy útil.</p>-->
+                  <h1 class="text-center padding" id="answer"></h1>
+                </div>
+            </div>
+
+    <!--<div class="container">
+            <div class="main align-middle"><br>
+                    <h1>¿Es temporada de <input type="text" autocomplete="off" name="" id="search" /> ?</h1><br>
+                    
                     <br>
                     <br>
                     <br>
                     <br>
                     <br>
                     <h1 id="answer"></h1>
-            </div>
-        </div>
+            </div>-->
     </div>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
