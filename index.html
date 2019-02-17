@@ -5,15 +5,11 @@
     <meta charset="utf-8" />
     <title></title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <style type="text/css">
         body {
             color: #fff;
             background: #000;
-        }
-
-        .list-group {
-            color: #000;
-            cursor: pointer;
         }
 
         .main {
@@ -35,19 +31,21 @@
             <div class="main text-center">
                     <h1>¿Es temporada de?</h1>
                     <input type="text" autocomplete="off" name="" id="search" />
-                    <div id="results"></div>
                     <h1 id="answer"></h1>
             </div>
         </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript" src='./fruits.js'></script>
     <script type="text/javascript" src="./main.js"></script>
     <script type="text/javascript">
+        $( "#search" ).autocomplete({
+            source: FruitModel.getAllFruits()
+        });
+
         $('#search').on('keyup input', function(e) {
             let term = $(this).val().toLowerCase().trim();
-
-            FruitController.searchFruit(term);
 
             const event = e || window.event;
             const charCode = event.which || event.keyCode;

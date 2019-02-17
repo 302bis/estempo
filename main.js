@@ -39,58 +39,23 @@ const FruitModel = ((fruitsData) => {
         return results.length === 1;
     };
 
-    const searchFruit = (fruit) => {
-        return liveSearch(getAllFruits(), fruit);
-    };
-
     return {
+        getAllFruits: getAllFruits,
         isSeason: isSeason,
-        searchFruit: searchFruit
     };
 }) (fruitsData);
 
-const fruitView = (fruits) => {
-    let html = '<ul class="list-group text-left">';
-
-    if (fruits.length > 0) {
-        fruits.forEach((fruit) => {
-            html += `<li class="list-group-item" onclick="FruitController.selectFruit('${fruit}')">${fruit}</li>`;
-        });
-    } else {
-        html += `<li class="list-group-item">No encontrado</li>`;
-    }
-
-    html += '</ul>'
-
-    return html;
-};
-
 const FruitController = (() => {
     const $answer = document.querySelector('#answer');
-    const $results = document.querySelector('#results');
-
-    const searchFruit = (fruit) => {
-        $answer.innerHTML = '';
-        $results.innerHTML = '';
-
-        if (fruit.trim() === '') {
-            return;
-        }
-
-        const fruitsFound = FruitModel.searchFruit(fruit);
-        $results.innerHTML = fruitView(fruitsFound);
-    };
 
     const selectFruit = (fruit) => {
         const isSeason = FruitModel.isSeason(fruit);
 
         document.querySelector('#search').value = fruit;
         $answer.innerHTML = (isSeason) ? 'SÍ' : 'NO';
-        $results.innerHTML = '';
     };
 
     return {
-        searchFruit: searchFruit,
         selectFruit: selectFruit
     };
 }) ();
