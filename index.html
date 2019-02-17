@@ -44,45 +44,6 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript" src='./fruits.js'></script>
     <script type="text/javascript" src="./main.js"></script>
-    <script type="text/javascript">
-        const NoResultsLabel = '';
 
-        $( "#search" ).autocomplete({
-            source: function(request, response) {
-                var results = $.ui.autocomplete.filter(FruitModel.getAllFruits(), request.term);
-
-                if (!results.length) {
-                    results = [NoResultsLabel];
-                }
-
-                response(results);
-            },
-            select: function(event, ui) {
-                if (ui.item.label === NoResultsLabel) {
-                    return event.preventDefault();
-                }
-
-                FruitController.selectFruit(ui.item.value);
-            }
-        });
-
-        $('#search').on('keyup input', function(e) {
-            let term = $(this).val().toLowerCase().trim();
-
-            if (term === NoResultsLabel) {
-                $('#answer').html('');
-                return;
-            }
-
-            const event = e || window.event;
-            const charCode = event.which || event.keyCode;
-
-            if (charCode == '13') {
-                FruitController.selectFruit(term);
-            }
-
-            return false;
-        });
-    </script>
 </body>
 </html>
