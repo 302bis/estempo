@@ -28,12 +28,23 @@ const FruitModel = ((fruitsData) => {
     };
 
     const isSeason = (fruit) => {
-        return getFruitsByCurrentMonth().includes(fruit); 
+        let isSeason = getFruitsByCurrentMonth().includes(fruit);
+
+        if (isSeason) {
+            return true;
+        }
+
+        let isFruits = getAllFruits().includes(fruit);
+
+        if (isFruits) {
+            return false;
+        }
+
+        return null;
     };
 
     return {
         getAllFruits: getAllFruits,
-        getFruitsByCurrentMonth: getFruitsByCurrentMonth,
         isSeason: isSeason,
     };
 }) (fruitsData);
@@ -45,7 +56,7 @@ const FruitController = (() => {
         const isSeason = FruitModel.isSeason(fruit);
 
         document.querySelector('#search').value = fruit;
-        $answer.innerHTML = (isSeason) ? 'SÍ' : 'NO';
+        $answer.innerHTML = (isSeason === null) ? 'NO SÉ' : ((isSeason) ? 'SÍ' : 'NO');
     };
 
     return {
