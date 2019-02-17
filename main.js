@@ -56,7 +56,7 @@ const FruitController = (() => {
         const isSeason = FruitModel.isSeason(fruit);
 
         document.querySelector('#search').value = fruit;
-        $answer.innerHTML = (isSeason === null) ? 'NO SÉ' : ((isSeason) ? 'SÍ' : 'NO');
+        $answer.innerHTML = (isSeason === null) ? 'Ni idea' : ((isSeason) ? '¡Sí!' : 'No : (');
     };
 
     return {
