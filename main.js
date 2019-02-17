@@ -50,14 +50,14 @@ const FruitModel = ((fruitsData) => {
 }) (fruitsData);
 
 const fruitView = (fruits) => {
-    let html = '<ul class="list-group">';
+    let html = '<ul class="list-group text-left">';
 
     if (fruits.length > 0) {
         fruits.forEach((fruit) => {
             html += `<li class="list-group-item" onclick="FruitController.selectFruit('${fruit}')">${fruit}</li>`;
         });
     } else {
-        html += `<li>No encontrado</li>`;
+        html += `<li class="list-group-item">No encontrado</li>`;
     }
 
     html += '</ul>'
@@ -94,20 +94,3 @@ const FruitController = (() => {
         selectFruit: selectFruit
     };
 }) ();
-
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelector('#search').addEventListener('keyup', function(e) {
-        let term = this.value.toLowerCase().trim();
-
-        FruitController.searchFruit(term);
-    
-        const event = e || window.event;
-        const charCode = event.which || event.keyCode;
-
-        if ( charCode == '13' ) {
-            FruitController.selectFruit(term)
-        }
-
-        return false;
-    });
-});
