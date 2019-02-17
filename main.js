@@ -1,9 +1,3 @@
-const liveSearch = (results, search) => {
-    return results.filter((result) => {
-        return (result.substr(0, search.length) === search);
-    });
-};
-
 const FruitModel = ((fruitsData) => {
     const fruits = fruitsData;
 
@@ -34,13 +28,12 @@ const FruitModel = ((fruitsData) => {
     };
 
     const isSeason = (fruit) => {
-        const results = liveSearch(getFruitsByCurrentMonth(), fruit); 
-
-        return results.length === 1;
+        return getFruitsByCurrentMonth().includes(fruit); 
     };
 
     return {
         getAllFruits: getAllFruits,
+        getFruitsByCurrentMonth: getFruitsByCurrentMonth,
         isSeason: isSeason,
     };
 }) (fruitsData);
