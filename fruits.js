@@ -35,7 +35,7 @@ const fruitsData = {
         "tomate",
         "toronja",
         "zanahoria",
-        "zapote negro,"
+        "zapote negro"
     ],
     "febrero":[
         "acelga",
