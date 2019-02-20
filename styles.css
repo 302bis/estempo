@@ -24,9 +24,10 @@
             .imput-front{
                 width: 80%;
             }
-            .title-hero{
+            span.title-hero{
                 padding-bottom: 30px;
                 display: block;
+                background: red;
 
             }
           }
