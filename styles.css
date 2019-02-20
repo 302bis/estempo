@@ -21,7 +21,7 @@
             padding-top: 60px; 
         }
         @media only screen and (max-width: 600px) {
-            body {
-              background-color: lightblue;
+            .imput-front{
+                width: 80%;
             }
           }
