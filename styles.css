@@ -20,7 +20,7 @@
         .padding{
             padding-top: 60px; 
         }
-        @media only screen and (max-width: 600px) and (min-width:401){
+        @media only screen and (min-width:401) and (max-width: 600px){
             .imput-front{
                 width: 80%;
             }
