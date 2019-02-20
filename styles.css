@@ -1,0 +1,23 @@
+
+        body {
+            background: #000;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        #search {
+            border-radius: 5px;
+            border: 0px solid #000;
+            padding: 10px;
+            min-width: 300px;
+            max-width: 400px;;
+        }
+        html, body {
+            height: 100%;
+        }
+        .jumbotron{
+            background-color: transparent;
+            color: #fafafa;
+        }
+        .padding{
+            padding-top: 60px; 
+        }
